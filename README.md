@@ -35,3 +35,33 @@
 * Delivery semantics for consumers:
     * ![consumer_group](./images/consumer_group_5.png)
         * Consumer offset is stored and tracked separately for each topic-partition, so consumer instances when assigned a partition know exactly from which offset to start reading. Also, of course, offsets are stored and tracked for each consumer group separately.
+
+* Kafka Brokers
+    * ![broker](./images/broker_1.png)
+    * ![broker](./images/broker_2.png)
+    * ![broker](./images/broker_3.png)
+
+* Topic replication factor
+    * ![broker](./images/broker_4.png)
+    * ![broker](./images/broker_5.png)
+    * ![broker](./images/broker_6.png)
+    * ![broker](./images/broker_7.png)
+        * Producer writes can only happen to the partition leader broker.
+    * ![broker](./images/broker_8.png)
+        * Configure consumer to closest broker (replica).
+
+* Producer Acknowledgments and Topic Durability 
+    * ![broker](./images/broker_9.png)
+    * ![broker](./images/broker_10.png)
+
+* Zookeeper
+    * ![zookeeper](./images/zookeeper_1.png)
+    * ![zookeeper](./images/zookeeper_2.png)
+    * ![zookeeper](./images/zookeeper_3.png)
+    * ![zookeeper](./images/zookeeper_4.png)
+        * https://raft.github.io/
+    * ![zookeeper](./images/zookeeper_5.png)
+    * ![zookeeper](./images/zookeeper_5.png)
+
+* Theory Roundup
+    * ![theory_roundup](./images/theory_roundup.png)
