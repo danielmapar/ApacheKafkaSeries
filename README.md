@@ -65,3 +65,38 @@
 
 * Theory Roundup
     * ![theory_roundup](./images/theory_roundup.png)
+
+## Setting up Kafka
+
+* Navigate to the `lab` folder in this repo and run `docker-compose`
+    * `cd lab && docker-compose up -d`
+
+* SSH into the Kafka contained by running:
+    * `docker-compose exec kafka /bin/sh`
+    * `cd /opt/bitnami/kafka/bin`
+
+* List topics inside our broker:
+    * `kafka-topics.sh --list  --bootstrap-server 127.0.0.1:9092`
+    * `kafka-console-producer.sh --bootstrap-server 127.0.0.1:9092 --topic test`
+    * `kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic test --from-beginning`
+    * `kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --topic test --describe`
+
+* Important note:
+    * ![kafka_cli](./images/kafka_cli_1.png)
+
+* Kafka Topic CLI:
+    * Create Kafka Topics
+        * `kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --create --topic first_topic`
+            * We are not defining the number of partitions 
+        * `kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --create --topic second_topic --partitions 5`
+            * This topic contains 5 partitions
+        * `kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --create --topic third_topic --partitions 5 --replication-factor 2`
+            * The target replication factor of 2 cannot be reached because only 1 broker(s) are registered. Remember, replication is tied to number of brokers
+    * List Kafka Topics
+        * `kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --list`
+    * Describre Kafka Topics
+        * `kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --topic first_topic --describe`
+    * Increase Partitions in a Kafka Topic
+        * If you want to change the number of partitions or replicas of your Kafka topic, you can use a streaming transformation to automatically stream all of the messages from the original topic into a new Kafka topic that has the desired number of partitions or replicas.
+    * Delete a Kafka Topic
+        * `kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --topic first_topic --delete`
