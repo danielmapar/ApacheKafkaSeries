@@ -72,7 +72,7 @@
     * `cd lab && docker-compose up -d`
 
 * SSH into the Kafka contained by running:
-    * `docker-compose exec kafka /bin/sh`
+    * `docker-compose exec kafka /bin/bash`
     * `cd /opt/bitnami/kafka/bin`
 
 * List topics inside our broker:
@@ -100,3 +100,103 @@
         * If you want to change the number of partitions or replicas of your Kafka topic, you can use a streaming transformation to automatically stream all of the messages from the original topic into a new Kafka topic that has the desired number of partitions or replicas.
     * Delete a Kafka Topic
         * `kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --topic first_topic --delete`
+
+* Kafka Console Producer CLI
+
+    * ![kafka_producer_cli](./images/kafka_producer_cli_1.png)
+        * Producer without keys: It will distribute values using the Robin Hood approach
+        * Producer using keys: It will distribute on the key hash (`murmur2`)
+
+    * Create a topic with one partition:
+        * `kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --create --topic producer_topic --partitions 1`
+
+    * Produce messages to the topic:
+        * `kafka-console-producer.sh --bootstrap-server 127.0.0.1:9092 --topic producer_topic`
+            * ```bash
+                >Hello World
+                >My name is Daniel
+                >I love Kafka
+                > Control + C
+                ```
+
+    * Produce messages to the topic with extra properties:
+        * `kafka-console-producer.sh --bootstrap-server 127.0.0.1:9092 --topic producer_topic --producer-property acks=all`
+
+    * Produce messages to a topic that does not exist:
+        * `kafka-console-producer.sh --bootstrap-server 127.0.0.1:9092 --topic producer_topic_new`
+            * `[2023-05-31 19:03:57,926] WARN [Producer clientId=console-producer] Error while fetching metadata with correlation id 4 : {producer_topic_new=UNKNOWN_TOPIC_OR_PARTITION} (org.apache.kafka.clients.NetworkClient)`
+            * It will fail, but it will create the topic nontheless. - auto creationg
+            * You can edit `config/server.properties` to set the default number of partitions.
+
+    * Produce messages with a key: `kafka-console-producer.sh --bootstrap-server 127.0.0.1:9092 --topic producer_topic_new --property parse.key=true --property key.separator=:`
+        * ```bash
+            >example key:example value
+            >name:daniel
+            ```
+
+        * ```bash
+            kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --from-beginning --topic producer_topic_new
+            > new topic
+            > kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --list
+            > testtest
+            > example value
+            > daniel
+            ```
+
+* Kafka Console Consumer CLI
+    * ![kafka_consumer_cli](./images/kafka_consumer_cli_1.png)
+
+    * Consuming messages from the beginning
+        * `kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic test --from-beginning`
+
+    * Producing messages
+        * `kafka-console-producer.sh --bootstrap-server 127.0.0.1:9092 --topic producer_topic_new --producer-property partitioner.class=org.apache.kafka.clients.producer.RoundRobinPartitioner`
+            * We want to use the Round Robin partitioner to distribute keys equaly between patitions. If we don't use, Kafka will probably send the data to the same partition.
+
+    * Consuming messages with key
+        * `kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic producer_topic_new --formatter kafka.tools.DefaultMessageFormatter --property print.timestamp=true --property print.key=true --property print.value=true --property print.partition=true --from-beginning`
+
+* Kafka Consumers in Groups
+
+    * ![kafka_consumer_group_cli](./images/kafka_consumer_group_cli_1.png)
+
+    * Create a topic
+        * `kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --create --topic group_topic --partitions 5`
+
+    * Consume the topic from a group
+        * `kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic group_topic --group my-first-application`
+            * If we create multiple consumers using the same group, each consumer will take care of some unique partitions. e.g. consumer 1 takes care of partition 0 and consumer 2 takes care of partition 1.
+
+        * ![kafka_consumer_group_cli](./images/kafka_consumer_group_cli_2.png)
+
+        * `kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic group_topic --group my-first-application --from-beginning`
+            * The group will ignore the `--from-beginning` flag if he already read some messages (commited an offset)
+
+* Consumer Group Managment CLI
+
+    * ![kafka_consumer_group_cli](./images/kafka_consumer_group_cli_3.png)
+
+    * List consumer groups
+        * `kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --list`
+
+    * Describe group
+        * `kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --group my-first-application --describe`
+
+        * ![kafka_consumer_group_cli](./images/kafka_consumer_group_cli_4.png)
+            * Lag = current offset - consumer offset
+            * Each consumer inside a consumer group has an id
+
+* Consumer Group - Reset Offset
+
+    * ![kafka_consumer_group_cli](./images/kafka_consumer_group_cli_5.png)
+
+    * Describe group
+        * `kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --group my-first-application --describe`
+
+    * Reset the offset of this group to read all messages
+
+        * `kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --group my-first-application --reset-offsets --to-earliest --dry-run --topic group_topic`
+            * `--dry-run` shows the changes that will be applied, but it does not apply them.
+
+        * `kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --group my-first-application --reset-offsets --to-earliest --execute --topic group_topic`
+            * `--execute` applies the changes to the group offset.
