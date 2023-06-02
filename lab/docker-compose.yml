@@ -1,33 +1,16 @@
 version: "2"
 
-networks:
-  app-tier:
-    driver: bridge
-
 services:
   kafka:
     image: docker.io/bitnami/kafka:3.4
     ports:
       - "9092:9092"
-    networks:
-      - app-tier
     volumes:
       - "kafka_data:/bitnami"
     environment:
       - ALLOW_PLAINTEXT_LISTENER=yes
-  kafka-ui:
-    container_name: kafka-ui
-    image: provectuslabs/kafka-ui:latest
-    ports:
-      - 8080:8080
-    networks:
-      - app-tier
-    environment:
-      DYNAMIC_CONFIG_ENABLED: true
-    volumes:
-      - ~/kui/config.yml:/etc/kafkaui/dynamic_config.yaml
-    depends_on:
-      - kafka
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://0.0.0.0:9092,CONTROLLER://:9093
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9092
 
 volumes:
   kafka_data:
