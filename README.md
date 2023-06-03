@@ -200,3 +200,98 @@
 
         * `kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --group my-first-application --reset-offsets --to-earliest --execute --topic group_topic`
             * `--execute` applies the changes to the group offset.
+
+* Producer - Sticky Partition
+
+    * ![kafka_producer_sticky](./images/kafka_producer_sticky_1.png)
+
+    * The producer may try to be efficient and send a batch of messages to the same partition.
+        * `partitioner.call = null`
+        * default partitioner (no key)
+
+* Producer - Key
+
+    * ![kafka_producer](./images/kafka_producer_10.png)
+
+* Consumer Group - Rebalancing
+
+    * ![consumer_group](./images/consumer_group_10.png)
+
+    * ![consumer_group](./images/consumer_group_11.png)
+
+    * ![consumer_group](./images/consumer_group_12.png)
+
+    * ![consumer_group](./images/consumer_group_13.png)
+
+    * ![consumer_group](./images/consumer_group_14.png)
+
+    * ![consumer_group](./images/consumer_group_15.png)
+
+    * ![consumer_group](./images/consumer_group_16.png)
+
+    * The previous code examples should be enough for 90% of your use cases.
+
+    * Here, we have included advanced examples for the following use cases:
+
+    * Consumer Rebalance Listener: in case you're doing a manual commit of your offsets to Kafka or externally, this allows you to commit offsets when partitions are revoked from your consumer.
+
+    * Consumer Seek and Assign: if instead of using consumer groups, you want to start at specific offsets and consume only specific partitions, you will learn about the .seek() and .assign() APIs.
+
+    * Consumer in Threads: very advanced code samples, this is for those who want to run their consumer `.poll()` loop in a separate thread.
+
+* Producer ACKs and idempotency
+
+    * ![producers_ack_all](./images/producers_ack_all.png)
+        * `acks=all walks hand in hand with min.insync.replicas`
+
+    * ![producers_ack_all](./images/producers_ack_all_2.png)
+
+    * ![producers_retries](./images/producer_retries_1.png)
+
+    * ![producers_retries](./images/producer_retries_2.png)
+
+    * ![idempotent_producer](./images/idempotent_producer_1.png)
+
+    * ![idempotent_producer](./images/idempotent_producer_2.png)
+
+    * ![idempotent_producer](./images/idempotent_producer_3.png)
+
+    * ![idempotent_producer](./images/idempotent_producer_4.png)
+
+    * ![idempotent_producer](./images/idempotent_producer_5.png)
+
+* Message Compression
+
+    * ![message_compression](./images/message_compression_1.png)
+
+    * ![message_compression](./images/message_compression_2.png)
+
+    * ![message_compression](./images/message_compression_3.png)
+
+    * ![batch_speed](./images/batch_speed_1.png)
+
+    * ![batch_speed](./images/batch_speed_2.png)
+
+    * ![batch_speed](./images/batch_speed_3.png)
+
+    * ![batch_speed](./images/batch_speed_4.png)
+
+* Compression (snappy)
+
+    * ![compression](./images/compression_1.png)
+
+* Partitioner
+
+    * ![partitioner](./images/partitioner_1.png)
+
+    * ![partitioner](./images/partitioner_2.png)
+
+    * ![partitioner](./images/partitioner_3.png)
+
+    * ![partitioner](./images/partitioner_4.png)
+
+    * ![partitioner](./images/partitioner_5.png)
+
+* Block buffer
+
+    * ![block](./images/block_1.png)
