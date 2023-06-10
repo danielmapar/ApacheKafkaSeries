@@ -295,3 +295,37 @@
 * Block buffer
 
     * ![block](./images/block_1.png)
+
+* Delivery Semantics
+    * ![delivery_semantics](./images/delivery_semantics_1.png)
+
+    * ![delivery_semantics](./images/delivery_semantics_2.png)
+
+    * ![delivery_semantics](./images/delivery_semantics_3.png)
+
+* Consumer Offset Commit Strategy
+    * ![delivery_semantics](./images/delivery_semantics_4.png)
+
+    * ![delivery_semantics](./images/delivery_semantics_5.png)
+
+    * ![delivery_semantics](./images/delivery_semantics_6.png)
+
+    * ![delivery_semantics](./images/delivery_semantics_7.png)
+
+    * ![delivery_semantics](./images/delivery_semantics_8.png)
+
+    * ![delivery_semantics](./images/delivery_semantics_9.png)
+
+* Controlling Consumer Liveliness
+
+    * ![delivery_semantics](./images/delivery_semantics_10.png)
+
+    * ![delivery_semantics](./images/delivery_semantics_11.png)
+
+    * ![delivery_semantics](./images/delivery_semantics_12.png)
+
+    * ![delivery_semantics](./images/delivery_semantics_13.png)
+
+    * ![delivery_semantics](./images/delivery_semantics_14.png)
+
+    * ![delivery_semantics](./images/delivery_semantics_15.png)
