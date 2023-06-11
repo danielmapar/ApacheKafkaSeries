@@ -329,3 +329,7 @@
     * ![delivery_semantics](./images/delivery_semantics_14.png)
 
     * ![delivery_semantics](./images/delivery_semantics_15.png)
+
+## Kafka Extended APIs for Developers
+
+* ![kafka_extended](./images/kafka_extended_1.png)
