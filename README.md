@@ -393,3 +393,43 @@
 * ![kafka_real_world](./images/kafka_real_world_17.png)
 
 * ![kafka_real_world](./images/kafka_real_world_18.png)
+
+* ![kafka_real_world](./images/kafka_real_world_19.png)
+
+* ![kafka_real_world](./images/kafka_real_world_20.png)
+
+* ![kafka_real_world](./images/kafka_real_world_21.png)
+
+* ![kafka_real_world](./images/kafka_real_world_22.png)
+
+* ![kafka_real_world](./images/kafka_real_world_23.png)
+
+* ![kafka_real_world](./images/kafka_real_world_24.png)
+
+* ![kafka_real_world](./images/kafka_real_world_25.png)
+
+* ![kafka_real_world](./images/kafka_real_world_26.png)
+
+* ![kafka_real_world](./images/kafka_real_world_27.png)
+
+## Advanced Topics Configuration
+
+* ![advanced_topics](./images/advanced_topics_1.png)
+
+* ![advanced_topics](./images/advanced_topics_2.png)
+
+* ![advanced_topics](./images/advanced_topics_3.png)
+
+* ![advanced_topics](./images/advanced_topics_4.png)
+
+* ![advanced_topics](./images/advanced_topics_5.png)
+
+* ![advanced_topics](./images/advanced_topics_6.png)
+
+* ![advanced_topics](./images/advanced_topics_7.png)
+
+* ![advanced_topics](./images/advanced_topics_8.png)
+
+* ![advanced_topics](./images/advanced_topics_9.png)
+
+* ![advanced_topics](./images/advanced_topics_10.png)
