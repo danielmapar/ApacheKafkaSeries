@@ -333,3 +333,63 @@
 ## Kafka Extended APIs for Developers
 
 * ![kafka_extended](./images/kafka_extended_1.png)
+
+* ![kafka_streams](./images/kafka_streams_1.png)
+
+* ![schema_registry](./images/schema_registry_1.png)
+
+* ![schema_registry](./images/schema_registry_2.png)
+
+* ![schema_registry](./images/schema_registry_3.png)
+
+* ![schema_registry](./images/schema_registry_4.png)
+
+* ![schema_registry](./images/schema_registry_5.png)
+
+* ![schema_registry](./images/schema_registry_6.png)
+
+## Kafka Real World Architecture
+
+* ![kafka_apis](./images/kafka_apis_1.png)
+
+* ![kafka_real_world](./images/kafka_real_world_1.png)
+
+* ![kafka_real_world](./images/kafka_real_world_2.png)
+
+* ![kafka_real_world](./images/kafka_real_world_3.png)
+
+* ![kafka_real_world](./images/kafka_real_world_4.png)
+
+## Topic Naming Convention
+
+* ![kafka_real_world](./images/kafka_real_world_5.png)
+
+* ![kafka_real_world](./images/kafka_real_world_6.png)
+
+## Big Data Ingestion
+
+* ![kafka_real_world](./images/kafka_real_world_7.png)
+
+* ![kafka_real_world](./images/kafka_real_world_8.png)
+
+## Kafka in the Enterprise for Admins
+
+* ![kafka_real_world](./images/kafka_real_world_9.png)
+
+* ![kafka_real_world](./images/kafka_real_world_10.png)
+
+* ![kafka_real_world](./images/kafka_real_world_11.png)
+
+* ![kafka_real_world](./images/kafka_real_world_12.png)
+
+* ![kafka_real_world](./images/kafka_real_world_13.png)
+
+* ![kafka_real_world](./images/kafka_real_world_14.png)
+
+* ![kafka_real_world](./images/kafka_real_world_15.png)
+
+* ![kafka_real_world](./images/kafka_real_world_16.png)
+
+* ![kafka_real_world](./images/kafka_real_world_17.png)
+
+* ![kafka_real_world](./images/kafka_real_world_18.png)
