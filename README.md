@@ -1,5 +1,7 @@
 # Apache Kafka Series
 
+* Manual link: https://www.conduktor.io/kafka/what-is-apache-kafka/
+
 ## Kafka Theory
 
 * Topics: 
@@ -433,3 +435,25 @@
 * ![advanced_topics](./images/advanced_topics_9.png)
 
 * ![advanced_topics](./images/advanced_topics_10.png)
+
+* ![advanced_topics](./images/advanced_topics_11.png)
+
+* ![advanced_topics](./images/advanced_topics_12.png)
+
+* ![advanced_topics](./images/advanced_topics_13.png)
+
+* ![advanced_topics](./images/advanced_topics_14.png)
+
+* ![advanced_topics](./images/advanced_topics_15.png)
+
+* ![advanced_topics](./images/advanced_topics_16.png)
+
+* ![advanced_topics](./images/advanced_topics_17.png)
+
+* ![advanced_topics](./images/advanced_topics_18.png)
+
+* ![advanced_topics](./images/advanced_topics_19.png)
+
+* ![advanced_topics](./images/advanced_topics_20.png)
+
+* ![advanced_topics](./images/advanced_topics_21.png)
